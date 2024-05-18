@@ -4,8 +4,7 @@ import java.util.Objects;
 
 import jakarta.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public abstract class AppUser {
 
     @Id
@@ -15,8 +14,6 @@ public abstract class AppUser {
     private String email;
     private String password;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Account account;
 
     @ManyToOne
     @JoinColumn(name = "agency_id")
@@ -65,13 +62,6 @@ public abstract class AppUser {
         this.password = password;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
     @Override
     public String toString() {

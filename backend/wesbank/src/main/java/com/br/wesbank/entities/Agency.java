@@ -20,9 +20,6 @@ public class Agency implements Serializable {
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Account> accounts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AppUser> users = new ArrayList<>();
-
     // Construtor
     public Agency() {}
 
@@ -62,14 +59,6 @@ public class Agency implements Serializable {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
-    }
-
-    public List<AppUser> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<AppUser> users) {
-        this.users = users;
     }
 
     @Override

@@ -25,18 +25,14 @@ public class Account {
 
     private BigDecimal balance;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private AppUser user;
 
     // Construtor
     public Account() {}
 
-    public Account(Agency agency, String pixKey, BigDecimal balance, AppUser user) {
+    public Account(Agency agency, String pixKey, BigDecimal balance) {
         this.agency = agency;
         this.pixKey = pixKey;
         this.balance = balance;
-        this.user = user;
     }
 
     // Getters e Setters
@@ -80,18 +76,12 @@ public class Account {
         this.balance = balance;
     }
 
-    public AppUser getUser() {
-        return user;
-    }
-
-    public void setUser(AppUser user) {
-        this.user = user;
-    }
+   
 
     @Override
     public String toString() {
         return "Account [id=" + id + ", agency=" + agency + ", pixKey=" + pixKey + ", status=" + status + ", balance="
-                + balance + ", user=" + user + "]";
+                + balance  + "]";
     }
 
     @Override

@@ -1,9 +1,10 @@
 package com.br.wesbank.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
-@Table(name = "client_pj")
+@Entity(name = "client_pj")
 public class ClientePJ extends AppUser{
 	
 	private String cnpj;
